@@ -1,13 +1,15 @@
 import "../styles/navbar.css"
 
-const Navbar=({prop, prop2})=>{
+const Navbar=({})=>{
     return(
         <nav className="nav-cont">
-            <a href=""></a>
+            <a href="">Oceanails</a>
+            
             <div>
-                <a href="">{prop}</a>
-                <a href="">{prop2}</a>
-                <a href=""></a>
+                <a href="">Inicio</a>
+                <a href="">Productos</a>
+                <a href="">Galeria</a>
+                <a href="">Contacto</a>
             </div>
         </nav>
     )

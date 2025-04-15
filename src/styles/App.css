@@ -1,12 +1,30 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+}
+.body{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:  auto 1fr auto;
+  grid-template-areas: 
+      "head"
+      "main"
+      "foot"
+  ;
+  min-height: 100vh;
+
+  background-color: #FFF6EE;
+
 }
 
-.btn-welcome{
-  background-color: aqua;
-  border-radius: 10px;
+.head{
+  grid-area: head;
 }
 
+.main{
+  grid-area: main;
+}
+
+.footer{
+  grid-area: foot;
+}

@@ -1,27 +1,24 @@
-import React from 'react'
-import "../styles/navbar.css"
+import React from 'react';
+
 
 const Banner = () => {
   return (
-    <div className='hero'>
-        <div className='hero-content'>
-            <div className='text-container'>
-                <div className='text'>
-                <h1>Oceanails</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias facilis incidunt dolore, pariatur esse iure officia ipsam neque mollitia maiores doloremque obcaecati impedit! Vitae in, animi placeat voluptate debitis quae.</p>
-                <button>¡Reserva Ahora!</button>
-                </div>
-                
-            </div>
-            <div className='image'>
-                <img src="/img/banner.png" alt="" />
-            </div>
+    <section className='hero'>
+      <div className='hero-content'>
+        <div className='text-container'>
+          <h1 className='hero-title'>Oceanails</h1>
+          <p className='hero-description'>
+            Transforma tus uñas en verdaderas obras de arte. Descubre la elegancia, el detalle y el cuidado que solo Oceanails puede ofrecer.
+          </p>
+          <button className='hero-button'>¡Reserva Ahora!</button>
         </div>
-        
-        
-      
-    </div>
-  )
-}
 
-export default Banner
+        <div className='hero-image'>
+          <img src="/img/banner.png" alt="Oceanails banner" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Banner;

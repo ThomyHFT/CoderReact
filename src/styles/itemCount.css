@@ -1,0 +1,32 @@
+.item-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+  
+  .count-btn {
+    background-color: #F48C7F;
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .count-btn:hover {
+    background-color: #e77c6e;
+  }
+  
+  .count-value {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #007A78;
+    width: 30px;
+    text-align: center;
+  }
+  

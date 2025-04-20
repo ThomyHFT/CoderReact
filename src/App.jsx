@@ -1,36 +1,34 @@
 import './styles/App.css'
 import Navbar from './componets/Navbar.jsx'
 import ItemListContainer from './componets/ItemListContainer.jsx'
-import Button from './componets/Button.jsx'
-import ItemCount from './componets/ItemCount.jsx'
 import Banner from './componets/Banner.jsx'
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import ItemDetail from './componets/ItemDetail.jsx'
+import Footer from './componets/Footer.jsx'
+
 
 function App() {
-
-  const mostrarProp="Muestrame"
-  const saludar=()=>{
-    alert("Bienvenidos")
-  }
   return (
-    // <>
-    // {/* de esta manera puedo mandar propiedades al componente */}
-    // <Navbar prop={mostrarProp} prop2="mostrarProp2"/> 
-    // <ItemListContainer/> 
-    // <Button text="Bienvenido" style="btn-welcome" handler={saludar}/>
-    // </>
+    <BrowserRouter>
     <div className='body'>
       <div className='head'>
-        <Navbar prop={mostrarProp} prop2="mostrarProp2"/>
+        <Navbar/>
         <Banner/>
       </div>
       <div className='main'>
-        <ItemCount />
+        <div id='productos'>
+        <Routes>
+        <Route path='/' element={<ItemListContainer/>}/>
+        <Route path='/category/:categoryid' element={<ItemListContainer seccion="#productos"/>}/>  
+        <Route path='/item/:itemid' element={<ItemDetail seccion="#productos"/>}/>  
+      </Routes>
+        </div>
       </div>
-      <div className='footer'>
-
-      </div>
+      <Footer/>
 
     </div>
+    </BrowserRouter>
+    
     
     
   )

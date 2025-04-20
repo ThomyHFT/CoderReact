@@ -1,15 +1,21 @@
 import "../styles/navbar.css"
+import { NavLink } from "react-router-dom";
+import DropDownList from "./DropDownList";
+import Cart from "./Cart";
 
-const Navbar=({})=>{
+
+
+const Navbar=()=>{
     return(
         <nav className="nav-cont">
-            <a href="">Oceanails</a>
+            <a className="title" href="/">Oceanails</a>
             
-            <div>
-                <a href="">Inicio</a>
-                <a href="">Productos</a>
+            <div className="links">
+                <DropDownList/>
                 <a href="">Galeria</a>
                 <a href="">Contacto</a>
+               <Cart/>
+                
             </div>
         </nav>
     )

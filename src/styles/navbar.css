@@ -1,0 +1,125 @@
+.nav-cont{
+    background-color: #ffffff;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title{
+    font-size: 2rem;
+    font-family: "Delius Swash Caps", cursive;
+    font-style: italic;
+}
+
+a{
+    color: #007A78;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.links{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop {
+    background-color: #ffffff;
+    border: none;
+    font-size: 1rem;
+    color: #007A78;
+    border-radius: 4px 4px 0 0;
+    outline: none;
+    appearance: none; /* Elimina la flecha por defecto */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath fill='%23007A78' d='M7 10L0 0h14L7 10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 22px center;
+    background-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+
+  .cart{
+    display: flex;
+    flex-direction: row;
+  }
+  
+
+  
+
+
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/img/background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 60px 20px;
+  }
+  
+  .hero-content {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .text-container {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .hero-title {
+    color: #007A78;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: "Delius Swash Caps", cursive;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .hero-description {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .hero-button {
+    background-color: #F48C7F;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .hero-button:hover {
+    background-color: #e07568;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  

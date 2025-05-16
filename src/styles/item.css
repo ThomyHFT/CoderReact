@@ -1,0 +1,140 @@
+
+/* Seccion Producto */
+.product-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.product-card:hover {
+  transform: scale(1.015);
+}
+
+.product-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.product-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.product-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #007A78;
+  margin: 0;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  color: #007A78;
+  font-weight: bold;
+}
+
+.addD-to-cart-btn {
+  background-color: #F48C7F;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+.addD-to-cart-btn:hover {
+  background-color: #e07a6f;
+}
+
+
+/* Seccion Lista de productos */
+.ItemList{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
+  width: 90%;
+  height: 90%;
+}
+
+
+/* Seccion del contenedor de la lista  */
+#productos{
+  margin-top: 50px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productTitle{
+  font-size: 3em;
+  margin-bottom: 30px;
+  color: #007A78;
+}
+
+
+/* Seccion detail del producto */
+.productD-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.productD-container:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.to-cart-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.sinStock {
+  font-size: 1.3rem;
+  color: #be004c;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.agregado {
+  font-size: 1.3rem;
+  color: #04cda5;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}

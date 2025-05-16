@@ -14,7 +14,7 @@ function Filter({children}){
             <option value="uncomepleted">Incompletos</option>
         </select>
 
-    {/* pasamos el valor del filtro actual al render prop */}
+    {}
     {children(filter)}   
 
      

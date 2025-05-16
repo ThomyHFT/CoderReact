@@ -1,4 +1,5 @@
 .nav-cont{
+  position: fixed;
     background-color: #ffffff;
     display: flex;
     width: 100%;
@@ -45,10 +46,6 @@ a{
     transition: border-color 0.3s ease;
   }
 
-  .cart{
-    display: flex;
-    flex-direction: row;
-  }
   
 
   
@@ -123,3 +120,251 @@ a{
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   
+
+/* Carrito */
+
+.cart {
+  position: relative; /* Clave: para que el hijo absolute se posicione respecto a este */
+  display: inline-block;
+}
+
+.cartWidget{
+  border: none;       /* Quita el borde */
+  background: transparent;  /* Si quieres fondo transparente */
+  padding: 0;         /* Opcional, para ajustar el tamaño al icono */
+  outline: none;      /* Quita el borde que aparece al hacer focus */
+  cursor: pointer; 
+}
+
+/* Para el desplegable del carrito */
+.cart-deploy {
+  position: absolute;
+  top: 100%; /* Justo debajo del .cart */
+  right: 0;  /* Alineado a la derecha */
+  width: 280px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+
+/* Estilos generales del contenedor desplegable */
+.cart-deploy {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  z-index: 1000;
+  font-family: sans-serif;
+}
+
+/* Contenedor de productos */
+.products-deploy {
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Cada producto listado */
+.products-deploy > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+}
+
+/* Botones debajo */
+.deploy-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Estilo para los botones */
+.deploy-buttons button {
+  flex: 1;
+  padding: 8px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007a78;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deploy-buttons button:hover {
+  background-color: #005f5d;
+}
+
+
+
+/* COntenedor del carrito */
+.cart-list-container {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  padding: 1.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+.cart-list-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.cart-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-empty {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.clear-cart-btn {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #f04e4e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.purchase-cart-btn {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.6rem 1.2rem;
+  background-color:#007A78;;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: #d43b3b;
+}
+
+
+
+/* Lista de productos en el carro */
+
+.cart-list-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.cart-list-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.cart-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-empty {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+
+
+/* Item de la lista */
+.item-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.item-cart:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.item-cart-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-cart-info {
+  flex: 1;
+}
+
+.item-cart-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.item-cart-info p {
+  margin: 0.2rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.item-cart-delete {
+  background-color: transparent;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.item-cart-delete:hover {
+  background-color: #e74c3c;
+  color: white;
+}

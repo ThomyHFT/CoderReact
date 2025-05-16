@@ -1,5 +1,4 @@
 import "../styles/navbar.css"
-import { NavLink } from "react-router-dom";
 import DropDownList from "./DropDownList";
 import Cart from "./Cart";
 

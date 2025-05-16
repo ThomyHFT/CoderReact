@@ -1,49 +1,29 @@
-import React, { useState } from 'react'
-import { useEffect} from 'react'
-import ItemCount from './ItemCount';
-import { getProducts } from '../mock/asyncService';
-import { useParams } from 'react-router-dom';
-import "../styles/itemDetail.css"
-
-
-const ItemDetail = ({seccion}) => {
-
-  const {itemid} = useParams();
-  const [producto, setProducto]=useState({})
-  console.log(itemid);
-  useEffect(() => {
-      
-      getProducts()
-        .then((res) => {
-          if (itemid) {
-             setProducto(res.find((prod) => prod.id === itemid));
-          }
-        })
-        .catch((error) => {
-          console.error("Error al cargar productos:", error);
-        })
-       
-    }, []);
+import { useContext, useState } from 'react';
+import { CartContext } from '../context/CartContext.jsx';
+import Item from './item.jsx';
+import ItemCount from './ItemCount.jsx'
+const ItemDetail = ({producto}) => {
+  const {addToCart}=useContext(CartContext)
+  const add=(quantity)=>{
+  
+    addToCart(producto,quantity)
+  }
+  const [addCart, setAddCart]=useState(true)
     return (
-      
       <div className="productD-container">
-        <div className='top'>
-          <div className='imgD-container'>
-          <img src={producto.img} alt={producto.name} className="productD-image" />
-          </div>
-          <div className='top-info'></div>
-            <h2 className="productD-title">{producto.name}</h2>
-            <p className="productD-price">${producto.price}</p>
-            <ItemCount />
-            <button className="addD-to-cart-btn">Agregar al carrito</button>
-          </div>
-        <div className='both'>
-          <p className="productD-description">{producto.description}</p>
-
-          </div>  
+        <Item producto={producto} vista="detail"/>
+        { 
+          producto.stock === 0 && addCart
+            ? <p className="sinStock">Sin stock</p>
+            : producto.stock > 0 && !addCart
+              ? <p className="agregado">Producto agregado a tu carrito!!</p>
+              : addCart && producto.stock > 0
+                ? <ItemCount stock={producto.stock} setCart={setAddCart} add={add} />
+                : null
+        }
+        
       </div>
     );
   };
   
-
 export default ItemDetail

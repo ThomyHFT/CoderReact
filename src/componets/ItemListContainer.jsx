@@ -1,40 +1,49 @@
 import React, { useEffect, useState } from 'react'
-import { getProducts } from '../mock/asyncService.jsx'
 import ItemList from './ItemList.jsx';
 import { useParams } from 'react-router-dom';
+import "../styles/item.css"
+import Loader from './Loader.jsx';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../services/FireBaseConecction.jsx';
 
 
 const ItemListContainer = ({seccion}) => {
-    //las asincronias se manejan con el hook de efect
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { itemid, categoryid } = useParams();
 
-  useEffect(() => {
-    setLoading(true);
 
-    getProducts()
-      .then((res) => {
-        if (itemid) {
-          const item = res.find((prod) => prod.id === itemid);
-          setData(item ? [item] : []);
-        }else if(categoryid=="todas"){
-          setData(res)
-        } 
-        else if (categoryid) {
-          setData(res.filter((prod) => prod.category === categoryid));
-        } else {
-          setData(res);
-        }
-      })
-      .catch((error) => {
-        console.error("Error al cargar productos:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [itemid, categoryid]);
+
+useEffect(()=>{
+  setLoading(true)
+  const productosCollections=collection(db,"productos")
+  getDocs(productosCollections)
+  .then((res)=>{
+    const list=res.docs.map((doc)=>{
+      return {
+        id:doc.id,
+        ...doc.data()
+      }
+    })
+    if (itemid) {
+        const item = list.find((prod) => prod.id === itemid);
+        setData(item ? [item] : []);
+    }else if(categoryid=="todas"){
+        setData(list)
+    } 
+    else if (categoryid) {
+         setData(list.filter((prod) => prod.category === categoryid));
+    } else {
+         setData(list);
+    }
+  })
+  .catch((error) => {
+         console.error("Error al cargar productos:", error);
+   })
+  .finally(()=>setLoading(false))
+},[itemid, categoryid])
+
 
   useEffect(() => {
     if (seccion) {
@@ -45,16 +54,14 @@ const ItemListContainer = ({seccion}) => {
     }
   }, [categoryid]);
 
-  if (loading) return <p>Cargando productos...</p>;
+  if (loading) return <div><Loader/></div>;
   if (data.length === 0) return <p>No se encontraron productos.</p>;
   
   return (
+    
     <div className='ItemSeccion'>
       <h2 className='productTitle'>{categoryid ? categoryid:"Productos"}</h2>
-      <div className='ItemList'>
-       {data.map(prod=><ItemList key={prod.id} producto={prod}/>)}
-      </div>
-      
+       <ItemList productos={data}/>
     </div>
   )
 }
